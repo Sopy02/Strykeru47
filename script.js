@@ -810,3 +810,45 @@
     }, 1800);
   }
 })();
+// Dezactivare click-dreapta
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    // alert("Click dreapta este dezactivat!");
+  });
+
+  // Dezactivare combinații de taste pentru DevTools
+  document.addEventListener('keydown', function(e) {
+    // F12
+    if (e.key === "F12") e.preventDefault();
+
+    // Ctrl+Shift+I / Cmd+Option+I
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') e.preventDefault();
+    if (e.metaKey && e.altKey && e.key.toLowerCase() === 'i') e.preventDefault();
+
+    // Ctrl+Shift+J / Cmd+Option+J
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') e.preventDefault();
+    if (e.metaKey && e.altKey && e.key.toLowerCase() === 'j') e.preventDefault();
+
+    // Ctrl+Shift+C / Cmd+Option+C
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') e.preventDefault();
+    if (e.metaKey && e.altKey && e.key.toLowerCase() === 'c') e.preventDefault();
+
+    // Ctrl+U / Cmd+U
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') e.preventDefault();
+  });
+
+  // Detectare DevTools (optional)
+  let devtoolsOpen = false;
+  const threshold = 160;
+  setInterval(function() {
+    const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+    const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+    if (widthThreshold || heightThreshold) {
+      if (!devtoolsOpen) {
+        devtoolsOpen = true;
+        // alert("Te rog închide DevTools!");
+      }
+    } else {
+      devtoolsOpen = false;
+    }
+  }, 1000);
