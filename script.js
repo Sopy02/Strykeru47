@@ -748,3 +748,65 @@
 
 
   animate();
+
+  /* =========================================================
+   COPY EMAIL TO CLIPBOARD + TOAST POPUP
+   ========================================================= */
+
+(function () {
+  const emailBtn = document.getElementById('emailBtn');
+  if (!emailBtn) return;
+
+  // creăm elementul de toast o singură dată
+  const toast = document.createElement('div');
+  toast.id = 'emailToast';
+  toast.textContent = 'Email copiat';
+  document.body.appendChild(toast);
+
+  let hideTimeout = null;
+
+  emailBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const email = emailBtn.getAttribute('data-email') || '';
+
+    // copiere in clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).catch(function () {
+        fallbackCopy(email);
+      });
+    } else {
+      fallbackCopy(email);
+    }
+
+    showToast();
+  });
+
+  function fallbackCopy(text) {
+    const tempInput = document.createElement('textarea');
+    tempInput.value = text;
+    tempInput.style.position = 'fixed';
+    tempInput.style.opacity = '0';
+    document.body.appendChild(tempInput);
+    tempInput.focus();
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+    } catch (err) {}
+    document.body.removeChild(tempInput);
+  }
+
+  function showToast() {
+    // pozitionam toast-ul langa buton
+    const rect = emailBtn.getBoundingClientRect();
+    toast.style.left = rect.left + rect.width / 2 + 'px';
+    toast.style.top = rect.top + 'px';
+
+    toast.classList.add('show');
+
+    if (hideTimeout) clearTimeout(hideTimeout);
+    hideTimeout = setTimeout(function () {
+      toast.classList.remove('show');
+    }, 1800);
+  }
+})();
