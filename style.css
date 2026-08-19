@@ -1304,12 +1304,12 @@
 
     width:min(90vw,420px);
 
-    background:
+   background:
       linear-gradient(
-        160deg,
-        rgba(255,255,255,0.1) 0%,
-        rgba(150,130,255,0.05) 50%,
-        rgba(255,255,255,0.03) 100%
+        165deg,
+        rgba(70,50,170,0.42) 0%,
+        rgba(30,18,90,0.42) 60%,
+        rgba(18,10,61,0.46) 100%
       );
 
     backdrop-filter:blur(24px) saturate(170%);
