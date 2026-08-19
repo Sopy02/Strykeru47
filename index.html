@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Strykeru47</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<div id="intro">
+  <div class="intro-content">
+
+    <div class="intro-title">
+      ENTER AT YOUR OWN RISK
+    </div>
+
+    <div class="intro-subtitle">
+      CLICK ANYWHERE TO ENTER
+    </div>
+
+  </div>
+</div>
+
+
+<!-- =========================================================
+     BACKGROUND VIDEO
+     ========================================================= -->
+
+<video
+  class="bg"
+  id="bg"
+  src="Background.mp4"
+  autoplay
+  muted
+  loop
+  playsinline
+></video>
+
+<div class="bg-overlay"></div>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+
+
+<!-- =========================================================
+     VOLUME
+     ========================================================= -->
+
+<div class="volume-wrap">
+
+  <div class="volume-btn" id="volBtn">
+
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+    </svg>
+
+  </div>
+
+  <div class="volume-slider-container">
+
+    <input
+      type="range"
+      id="volRange"
+      min="0"
+      max="100"
+      value="25"
+    >
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+
+<div class="stage" id="stage">
+
+  <div class="parallax-content" id="parallax">
+
+
+    <!-- =====================================================
+         PROFILE CARD
+         ===================================================== -->
+
+    <div class="card">
+
+      <div class="avatar-wrap">
+
+        <div class="lightning-wrap">
+
+          <svg viewBox="0 0 190 190">
+
+            <defs>
+
+              <linearGradient
+                id="boltGrad"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+
+                <stop
+                  offset="0%"
+                  stop-color="#6ea8ff"
+                  stop-opacity="0"
+                />
+
+                <stop
+                  offset="45%"
+                  stop-color="#bfe6ff"
+                  stop-opacity="1"
+                />
+
+                <stop
+                  offset="55%"
+                  stop-color="#ffffff"
+                  stop-opacity="1"
+                />
+
+                <stop
+                  offset="100%"
+                  stop-color="#6ea8ff"
+                  stop-opacity="0"
+                />
+
+              </linearGradient>
+
+
+              <filter
+                id="boltGlow"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+              >
+
+                <feGaussianBlur
+                  stdDeviation="3.2"
+                  result="blur"
+                />
+
+                <feMerge>
+
+                  <feMergeNode in="blur"/>
+
+                  <feMergeNode in="SourceGraphic"/>
+
+                </feMerge>
+
+              </filter>
+
+            </defs>
+
+
+            <circle
+              class="bolt-trail-2"
+              cx="95"
+              cy="95"
+              r="88"
+              fill="none"
+              stroke="url(#boltGrad)"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-dasharray="55 507"
+            />
+
+            <circle
+              class="bolt-trail-1"
+              cx="95"
+              cy="95"
+              r="88"
+              fill="none"
+              stroke="url(#boltGrad)"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-dasharray="55 507"
+            />
+
+            <circle
+              class="bolt-arc"
+              cx="95"
+              cy="95"
+              r="88"
+              fill="none"
+              stroke="url(#boltGrad)"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-dasharray="55 507"
+              filter="url(#boltGlow)"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="ring ring-outer"></div>
+        <div class="ring ring-mid"></div>
+        <div class="ring ring-inner"></div>
+
+        <div class="ring-dot"></div>
+        <div class="ring-dot-2"></div>
+        <div class="ring-dot-3"></div>
+
+
+        <div class="avatar">
+
+          <img
+            id="avatarImg"
+            class="avatar-img"
+            src=""
+            alt=""
+            style="display:none;"
+          >
+
+          <div
+            class="avatar-placeholder"
+            id="avatarPlaceholder"
+          ></div>
+
+        </div>
+
+
+        <img
+          class="avatar-decoration"
+          src="https://cdn.discordapp.com/avatar-decoration-presets/a_5889f65c4a28cdafc06847cc02790af1.png"
+          alt=""
+        >
+
+      </div>
+
+
+      <!-- USERNAME -->
+
+      <div class="username-wrap">
+
+        <div
+          class="particles"
+          id="particles"
+        ></div>
+
+        <div class="username">
+          <br>
+          STRYKERU47
+        </div>
+
+      </div>
+
+
+      <!-- SOCIAL BUTTONS -->
+
+      <div class="socials">
+
+        <a
+          href="https://www.instagram.com/strykeru47"
+          class="social-btn"
+          title="Instagram"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.89 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.47 2.43-.47C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/>
+
+          </svg>
+
+        </a>
+
+
+        <a
+          href="https://www.youtube.com/@Strykeru47xxx"
+          class="social-btn"
+          title="YouTube"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C17 2.5 12 2.5 12 2.5h-.01s-5 0-8.19.34c-.46.05-1.46.06-2.36 1C.73 4.56.5 6.2.5 6.2S.25 8.13.25 10.07v1.86c0 1.94.25 3.87.25 3.87s.23 1.64.94 2.36c.9.95 2.08.92 2.6 1.02 1.89.18 8 .24 8 .24s5.01-.01 8.2-.35c.46-.05 1.46-.06 2.36-1 .71-.72.94-2.36.94-2.36s.25-1.93.25-3.87v-1.86c0-1.94-.25-3.87-.25-3.87zM9.55 14.6V7.9l6.3 3.36-6.3 3.34z"/>
+
+          </svg>
+
+        </a>
+
+
+        <a
+          href="https://www.twitch.tv/strykeru47"
+          class="social-btn"
+          title="Twitch"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M4.3 2 3 5.6v14.2h4.9V22l3.1-2.2h4.1L21 15V2H4.3zm14.6 12L16 17H12l-3.1 2.2V17H5.9V4h13V14zM16 8h1.9v5.5H16V8zm-5 0h1.9v5.5H11V8z"/>
+
+          </svg>
+
+        </a>
+
+
+        <a
+          href="#"
+          class="social-btn"
+          title="Email"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MUSIC PLAYER
+         ===================================================== -->
+
+    <div class="player">
+
+      <div class="thumb">
+
+        <img
+          id="thumbImg"
+          src=""
+          alt=""
+        >
+
+      </div>
+
+
+      <div class="track-info">
+
+        <div
+          class="track-title"
+          id="trackTitle"
+        >
+          Se încarcă...
+        </div>
+
+
+        <div class="track-progress-row">
+
+          <span
+            class="time"
+            id="curTime"
+          >
+            0:00
+          </span>
+
+
+          <div
+            class="bar"
+            id="bar"
+          >
+
+            <div
+              class="bar-fill"
+              id="barFill"
+            ></div>
+
+          </div>
+
+
+          <span
+            class="time"
+            id="totTime"
+          >
+            0:00
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="controls">
+
+        <div
+          class="ctrl-btn"
+          id="prevBtn"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+
+          </svg>
+
+        </div>
+
+
+        <div
+          class="ctrl-btn"
+          id="playBtn"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+
+          </svg>
+
+        </div>
+
+
+        <div
+          class="ctrl-btn"
+          id="nextBtn"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M6 6h2v12H6zm3.5 6 8.5 6V6z"
+              transform="translate(24,0) scale(-1,1)"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<audio id="audio"></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
