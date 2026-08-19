@@ -203,7 +203,7 @@
     {
       title:"VANILLA, @lucawts, @CERCEL & @berechett - LNPSTRD",
       src:"Muzica/VANILLA, @lucawts, @CERCEL & @berechett - LNPSTRD.mp3",
-      artwork:"lnpstrd"
+      artwork:"Thumbnails/lnpstrd.jpg"
     }
 
   ];
