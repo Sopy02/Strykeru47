@@ -63,6 +63,49 @@
     pointer-events:none;
   }
 
+/* =========================================================
+   EMAIL COPIED TOAST
+   ========================================================= */
+
+#emailToast {
+  position: fixed;
+  transform: translate(-50%, -140%);
+    background:
+      linear-gradient(
+        165deg,
+        rgba(70,50,170,0.42) 0%,
+        rgba(30,18,90,0.42) 60%,
+        rgba(18,10,61,0.46) 100%
+      );
+  color:#7aa9de;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border:1px solid rgba(255,255,255,0.2);
+  padding: 8px 14px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 9999;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      text-shadow:
+      0 0 8px rgba(110,168,255,0.9),
+      0 0 20px rgba(110,168,255,0.65),
+      0 0 40px rgba(255,47,214,0.35);
+
+    animation:intro-glow 2.5s ease-in-out infinite;
+}
+
+#emailToast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -160%);
+}
+
   .intro-title{
     color:#ffffff;
     font-size:clamp(20px, 3vw, 34px);
