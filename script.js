@@ -641,6 +641,71 @@
 
   }
 
+/* =========================================================
+     CUSTOM ANIMATED CURSOR
+     ========================================================= */
+
+  (function () {
+
+    // Pe telefon/tabletă (fara mouse real) nu activam cursorul custom
+    const isTouch =
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+    if (isTouch) return;
+
+    const cursorEl = document.createElement('div');
+    cursorEl.id = 'customCursor';
+    document.body.appendChild(cursorEl);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    let curCursorX = mouseX;
+    let curCursorY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      // prima mișcare -> facem cursorul vizibil
+      cursorEl.style.opacity = '1';
+    });
+
+    window.addEventListener('mousedown', () => {
+      cursorEl.classList.add('clicking');
+    });
+
+    window.addEventListener('mouseup', () => {
+      cursorEl.classList.remove('clicking');
+    });
+
+    // Ascundem cursorul cand iese din fereastra
+    window.addEventListener('mouseleave', () => {
+      cursorEl.style.opacity = '0';
+    });
+
+    window.addEventListener('mouseenter', () => {
+      cursorEl.style.opacity = '1';
+    });
+
+    cursorEl.style.opacity = '0';
+
+    function animateCursor() {
+
+      // easing: cursorul "urmareste" mouse-ul cu o mica intarziere
+      curCursorX += (mouseX - curCursorX) * 0.18;
+      curCursorY += (mouseY - curCursorY) * 0.18;
+
+      cursorEl.style.transform =
+        `translate(${curCursorX - 2}px, ${curCursorY - 2}px)`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+  })();
+
 
   /* =========================================================
      MOUSE PARALLAX
